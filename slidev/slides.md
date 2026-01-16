@@ -42,9 +42,7 @@ class: text-left
 </div>
 
 <!--
-各位同學大家好，今天我們用非常務實的方式，從零開始認識 Git。
-你不需要先懂任何指令，只要跟著操作，就會知道怎麼把程式碼保存成可回溯的版本。
-今天先把「本地 Git」練扎實，之後再接 GitHub 協作。
+各位今天我們要學的東西很簡單：Git 不是魔法，它是一套「讓你回到過去、也能跟別人合作」的版本控制工具。 你們有程式基礎，所以你們一定遇過： 檔名最後變成 final、final2、final_final、final_final_really 的那種地獄。 Git 做的事情，就是把這些「存檔點」變成有系統、可追蹤、可以回復的歷史紀錄。 今天的目標只有三個： 第一，你會在本機做 commit，做出可回溯的歷史。 第二，你會把專案丟到 GitHub，知道 push / pull 在幹嘛。 第三，你會用 branch + PR 做協作，並且知道衝突怎麼解。 如果你今天結束後能做到：不怕改壞、不怕合作、不怕衝突，這堂課就成功。
 -->
 
 ---
@@ -81,16 +79,7 @@ layout: default
 </div>
 
 <!--
-先想像一下，你正在寫報告或做專案。
-如果沒有 Git：你不小心改壞一個檔案，專案壞掉但不知道哪一步壞的。
-你為了保留不同版本開始複製檔案，最後桌面出現「最終版」「最終版v2」「真的最終版」。
-多人合作時每個人都改一份，合併才發現互相覆蓋，溝通成本爆炸。
-
-有了 Git：每次改動都有記錄可以追，錯了能回到任何一個良好狀態。
-也能支援多人協作流程。
-
-提醒：Git 不是雲端服務，它是裝在你電腦本地的版本控制引擎。
-GitHub 是把 Git 專案放到網路上的地方，方便遠端協作與分享。
+一句話：Git 是「版本控制」。它不是雲端、不是上傳工具，它是記錄你每次變更的歷史。 你可以把 Git 想成： 每一次 commit 就像遊戲存檔點。 你不只存檔，你還可以看差異、回到某個時間點、把兩條故事線合在一起。 而且 Git 不是只有給工程師用，它其實是給「會一直改東西的人」用。你寫程式、做簡報、寫報告，都會一直改，所以你一定用得到。
 -->
 
 ---
@@ -147,12 +136,7 @@ layout: default
 </div>
 
 <!--
-這頁是 Git 的核心世界觀：工作區、暫存區、版本庫。
-工作區就是你電腦裡真正存在、你正在改的檔案。
-暫存區像待發布清單，你可以只挑一部分改動放進去，這就是 git add。
-版本庫是 commit 後形成的歷史版本集合，之後想回到任何一個版本都做得到。
-
-一句話記住：add 是挑選上台的人，commit 是拍照存檔。
+Git 有三個區域，我只用一句話把它講清楚： 工作區（working directory）：你正在編輯的檔案。 暫存區（stage）：你「選好要提交」的檔案清單。 倉庫（repository）：真正被寫進歷史的 commit。 很多新手卡住是因為少了暫存區這一層， 但你把它想成：我不是把整個資料夾拍照，我是先圈選要拍的東西，圈選完再按快門。 圈選就是 git add，按快門就是 git commit。
 -->
 
 ---
@@ -212,11 +196,7 @@ layout: default
 </div>
 
 <!--
-進入實作前先準備工具。
-安裝 Git：各系統方式不同，裝好後用 git --version 確認有版本號。
-建議用 VS Code，對 Git 很友善。
-專案資料夾建議獨立管理，路徑簡潔避免麻煩。
-工具到位我們就開始操作。
+我們先做第一次設定。這是一次性的，之後每個專案都不用重做。 第一步，確認你電腦有 Git： git --version 第二步，設定你的名字跟 email。這不是密碼，只是讓 commit 有作者資訊： git config --global user.name "你的名字" git config --global user.email "你的信箱" 你可以問我：不設定會怎樣？ 會出現錯誤，因為 Git 不知道這筆歷史紀錄要掛誰的名字。
 -->
 
 ---
@@ -250,10 +230,7 @@ layout: default
 
 <!--
 Git 指令很多，但初學者先掌握最核心四個就能開始管理版本。
-git status 是你的現況報告，慌了先打它。
-git add 決定這次提交要包含哪些內容。
-git commit 把暫存區寫入版本庫，形成里程碑。
-git log --oneline 用一行一筆快速瀏覽歷史。
+今天只要基礎的 4 個指令就能開始： git status：看現在發生什麼事 git add：選好要提交的檔案 git commit：做一個存檔點 git log：看歷史 你等一下會一直看到我在打 status。 新手最需要的能力不是背指令，是「先看狀態再動手」。
 -->
 
 ---
@@ -491,6 +468,12 @@ pre { margin: .35rem 0 !important; }
 
 </div>
 
+<!--
+第一步：確認你在正確資料夾。 你打 pwd 或 dir，看一下你是不是在你要做 Git 的那個資料夾裡。 如果你等一下看到 .git 資料夾，代表你真的在 Git 專案裡。 沒有 .git 就表示你還沒初始化，或你在錯資料夾。
+
+現在建立一個 README.md，寫三行字。內容隨便，你可以寫： line 1 line 2 line 3 重點不是內容，是讓 Git 有東西可以記錄。
+-->
+
 ---
 layout: two-cols-header
 ---
@@ -559,6 +542,12 @@ git commit -m "docs: add README.md"
 pre { margin: .35rem 0 !important; }
 </style>
 
+<!--
+現在打： git status 你應該會看到 untracked files，裡面有 notes.txt。 untracked 的意思是：Git 看到它了，但還沒開始追蹤它。 這時候你還不能 commit，因為你還沒把它加入暫存區。
+
+把 notes.txt 加入暫存區： git add notes.txt 再看一次狀態： git status 你要看到 changes to be committed，裡面有 notes.txt，代表它已經在 stage 了。 最後做第一次 commit： git commit -m "docs: add notes.txt" 這句訊息是說：我新增了一個文件 notes.txt。 commit 訊息不是寫給 Git 的，是寫給未來的你跟隊友看的。
+-->
+
 ---
 layout: two-cols-header
 ---
@@ -625,6 +614,10 @@ git commit -m "docs: update README.md"
 
 </div>
 
+<!--
+第二次 commit 會更像真實開發流程：先改、看差異、再提交。 第一步，打開 notes.txt，在最後再加兩行，例如： line 4 line 5 第二步，先不要急著 add。先看你改了什麼： git diff 你會看到紅色是被刪掉或被替換的，綠色是新增的。 這一步是讓你確認：我等一下 commit 的東西，真的是我想送出去的東西。 第三步，加入暫存區： git add notes.txt 第四步，第二次 commit： git commit -m "docs: update notes.txt" 最後檢查歷史： git log --oneline 你要看到兩行，代表你完成兩次 commit。
+-->
+
 ---
 layout: two-cols-header
 ---
@@ -665,6 +658,10 @@ git status
 ```
 
 </div>
+
+<!--
+我們用一句話收尾本機部分： git log --oneline 看到兩行就過關。 如果你只有一行，代表第二次沒有 commit 成功。 如果你看到 changes not staged for commit，代表你改了但忘記 git add。 如果你看到 nothing to commit，代表你根本沒改到，或改了但又改回去。 以後遇到任何 Git 問題，先 git status，八成就知道原因。
+-->
 
 ---
 layout: default
@@ -710,8 +707,7 @@ layout: default
 </div>
 
 <!--
-今天把本地 Git 的基本功練扎實了。
-下一步我們會把同一套流程搬到 GitHub：分支、Pull Request、Review、合併、衝突處理與分工。
+恭喜，你已經會了 Git 最核心的部分：把變更變成可追蹤的歷史。 接下來我們把「一個人在電腦上存檔」升級成「多人合作」。 這就要用到 GitHub。
 -->
 
 ---
@@ -722,6 +718,10 @@ layout: section
 <div class="opacity-80 text-lg mt-2">
 我們把「本地 Git」接上「遠端 GitHub」：branch / PR / review / merge
 </div>
+
+<!--
+一句話分清楚： Git 是你電腦上的版本控制工具。 GitHub 是放專案、做協作的線上平台。 左邊這個 Git，本地端： 它負責記錄每次變更、讓你回到任何版本。 右邊這個 GitHub，遠端： 它負責把專案放上去、讓別人看得到、可以一起 review、一起討論、一起合併。 所以 GitHub 不是 Git 的替代品，是把 Git 的協作能力放大。
+-->
 
 ---
 layout: two-cols-header
@@ -760,7 +760,7 @@ layout: two-cols-header
   </ul>
 
   <div class="mt-5 text-sm opacity-70">
-    常用：<code>git push、git pull</code>（把本地 Git 跟 GitHub 接起來）
+    常用：<code>git push、git pull</code>(把本地 Git 跟 GitHub 接起來)
   </div>
 </div>
 
@@ -770,6 +770,10 @@ layout: two-cols-header
 li { margin-left: 0.2rem; }
 code { padding: 0.1rem 0.35rem; border-radius: 0.4rem; background: rgba(255,255,255,.06); }
 </style>
+
+<!--
+一句話分清楚： Git 是你電腦上的版本控制工具。 GitHub 是放專案、做協作的線上平台。 左邊這個 Git，本地端： 它負責記錄每次變更、讓你回到任何版本。 右邊這個 GitHub，遠端： 它負責把專案放上去、讓別人看得到、可以一起 review、一起討論、一起合併。 所以 GitHub 不是 Git 的替代品，是把 Git 的協作能力放大。
+-->
 
 ---
 layout: two-cols-header
@@ -823,6 +827,10 @@ git pull
 <style>
 pre { margin: .4rem 0 !important; }
 </style>
+
+<!--
+遠端互動你只要記四個字：看、下載、推、拉。 clone：把別人的專案下載到你電腦。 remote：看你現在連到哪個 GitHub 倉庫。 push：把你本機的 commit 推上 GitHub。 pull：把 GitHub 上新的 commit 拉回來。 你可以把 push/pull 當成同步： push 是你把更新送出去， pull 是你把別人的更新拿回來。
+-->
 
 ---
 layout: two-cols-header
@@ -884,6 +892,10 @@ layout: two-cols-header
 code { padding: .1rem .35rem; border-radius: .45rem; background: rgba(255,255,255,.06); }
 </style>
 
+<!--
+分支就像「安全實驗室」。 main 是穩定版本，你不要直接在 main 亂改。 你想做新功能、修 bug、改 UI，都先開分支。 做完再合併回 main。 這樣你就算做壞了，也只是在自己的分支爆炸， main 還是乾淨、可用、可交付的狀態。
+-->
+
 ---
 layout: two-cols-header
 ---
@@ -935,6 +947,10 @@ git merge feature/ui
 pre { margin: .4rem 0 !important; }
 </style>
 
+<!--
+分支的最低配流程只要四步： 1 建立並切換分支： git switch -c feature/ui 2 看有哪些分支： git branch 3 切回 main： git switch main 4 合併分支： git merge feature/ui 你把它背起來，協作就能開始跑了。
+-->
+
 ---
 layout: two-cols-header
 ---
@@ -974,6 +990,10 @@ layout: two-cols-header
 <style>
 ul { margin: 0 !important; padding-left: 1.1rem; }
 </style>
+
+<!--
+PR 是一句話： 「我做完了，請你檢查後再合併。」 PR 的目的不是為了刁難人， 而是讓變更先被看過，提早抓 bug，讓團隊理解你做了什麼。 右邊這句話我很愛： PR 不是考試。 你不是追求一次完美，你追求的是可討論、可追蹤、可安全合併。
+-->
 
 ---
 layout: two-cols-header
@@ -1023,6 +1043,10 @@ layout: two-cols-header
 ul { margin: 0 !important; padding-left: 1.1rem; }
 </style>
 
+<!--
+你寫 PR 時，reviewer 其實只想知道三件事： 第一，我改了什麼（What）。 例如：新增登入頁、修排版、調 API 參數。 第二，為什麼要改（Why）。 需求來源是什麼？你在修哪個 bug？避免讓人以為你在亂改。 第三，怎麼測過（How tested）。 你用什麼方式確認它能跑？例如：本地跑過、哪些頁面點過、哪些 API 打過。 你把這三件事寫清楚，review 會快非常多，合併也更安心。
+-->
+
 ---
 layout: two-cols-header
 ---
@@ -1061,6 +1085,10 @@ layout: two-cols-header
 <style>
 ol { margin: 0 !important; }
 </style>
+
+<!--
+這是一個很常用、也很安全的協作流程。 黃金法則：不要一次 PR 改太多。 流程是： 1 main 不直接改 2 每個任務開新分支 3 在分支上小步 commit 4 push 分支到 GitHub 5 開 PR，互相 review 6 approve 後 merge 回 main 你把它當作團隊的交通規則。 有規則，合作才不會撞車。
+-->
 
 ---
 layout: two-cols-header
@@ -1110,6 +1138,10 @@ pre { margin: .35rem 0 !important; }
 /* 右邊卡片裡的 code 不要再額外留太多空 */
 .slidev-code { font-size: 0.95em; line-height: 1.35; }
 </style>
+
+<!--
+衝突不是壞事，它只是 Git 在說： 「你們兩個都改到同一段，我不知道要用哪個。」 常見原因就兩個： 兩個分支同時改到同一段， Git 無法自動判斷誰對。 你會看到的標記是這種： 　<<<<<<< HEAD ======= >>>>>>> branch-A 這時候你要做的事情也很單純： 打開檔案，決定要留哪個版本，或自己手動合成一個更好的版本， 然後把這些標記刪掉，存檔，再 add，再 commit。
+-->
 
 ---
 layout: two-cols-header
@@ -1178,6 +1210,10 @@ header"
 pre { margin: .35rem 0 !important; }
 </style>
 
+<!--
+我們來做一次「刻意撞車」。 因為你真的解過一次衝突，之後就不怕了。 第一步：從 main 開 branch-A，改 README 第一行，commit。 第二步：切回 main，再開 branch-B，也改 README 同一行，commit。 第三步：切回 main，merge branch-A，通常會成功。 第四步：再 merge branch-B，這次就會衝突。 衝突出現後： 你打開 README，你會看到剛剛那種 <<<<<<< ======= >>>>>>> 的標記。 你決定要保留 A、保留 B、或自己整合一個版本。 最後刪掉標記，存檔。 然後： git add . git commit -m "fix: resolve conflict on README header" 這筆 commit 的意義是：我解決衝突，讓歷史再次回到可用狀態。
+-->
+
 ---
 layout: center
 class: text-center
@@ -1194,3 +1230,7 @@ class: text-center
 <br>
 <br>
 <br>
+
+<!--
+今天你已經把 Git 的核心技能拿到了： 本機：你會 status / diff / add / commit / log 協作：你會 branch / merge GitHub：你知道 push / pull，知道 PR 的意義與寫法 進階：你知道衝突是什麼、怎麼解 你下一步要做的是： 把這套流程用在你自己的專案上。 例如：你把 Slidev 加進你的 Git 專案，做一筆 docs commit， 然後 push 上 GitHub，練一次開 PR。我們會在明天做「真實協作演練」：
+-->
