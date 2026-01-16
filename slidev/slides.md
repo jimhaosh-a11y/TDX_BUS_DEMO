@@ -830,6 +830,22 @@ pre { margin: .4rem 0 !important; }
 
 <!--
 遠端互動你只要記四個字：看、下載、推、拉。 clone：把別人的專案下載到你電腦。 remote：看你現在連到哪個 GitHub 倉庫。 push：把你本機的 commit 推上 GitHub。 pull：把 GitHub 上新的 commit 拉回來。 你可以把 push/pull 當成同步： push 是你把更新送出去， pull 是你把別人的更新拿回來。
+
+
+# Docker has specific installation instructions for each operating system.
+# Please refer to the official documentation at https://docker.com/get-started/
+
+# Pull the Node.js Docker image:
+docker pull node:24-alpine
+
+# Create a Node.js container and start a Shell session:
+docker run -it --rm --entrypoint sh node:24-alpine
+
+# Verify the Node.js version:
+node -v # Should print "v24.13.0".
+
+# Verify npm version:
+npm -v # Should print "11.6.2".
 -->
 
 ---

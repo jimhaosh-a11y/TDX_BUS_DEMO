@@ -42,7 +42,7 @@ python app/main.py
 ## 啟動 Frontend（Vite + Vue）
 ```powershell
 cd frontend
-copy ..\.env.example .env  # 或手動建立，只需 VITE_* 變數
+copy ..\.env.example .env  # 或手動建立
 npm install
 npm run dev -- --host
 ```
@@ -50,7 +50,7 @@ npm run dev -- --host
 
 ## 啟動 Slidev（投影片簡報）
 ```powershell
-cd slidev
+npm install
 npx slidev
 ```
 預設會在 `http://localhost:3030` 開啟投影片展示。
