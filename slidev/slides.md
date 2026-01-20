@@ -333,7 +333,7 @@ git restore --staged <file>
 git log --oneline
 git revert <commit>
 # 只想撤銷上一筆：git revert HEAD
-````
+```
 
 <div class="mt-3 text-sm opacity-70 leading-tight">
   <div>例：<code>git revert a1b2c3d</code>（會開編輯器讓你確認 commit 訊息，存檔後完成）</div>
@@ -381,20 +381,18 @@ layout: default
     <div class="flex items-center gap-2">
       <code class="px-2 py-1 rounded bg-white/5">fix:</code><span class="opacity-85">修 bug</span>
     </div>
-
-        <div class="flex items-center gap-2">
-          <code class="px-2 py-1 rounded bg-white/5">docs:</code><span class="opacity-85">文件</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <code class="px-2 py-1 rounded bg-white/5">chore:</code><span class="opacity-85">雜項/工具</span>
-        </div>
-
-        <div class="flex items-center gap-2">
-          <code class="px-2 py-1 rounded bg-white/5">refactor:</code><span class="opacity-85">重構</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <code class="px-2 py-1 rounded bg-white/5">test:</code><span class="opacity-85">測試</span>
-        </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">docs:</code><span class="opacity-85">文件</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">chore:</code><span class="opacity-85">雜項/工具</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">refactor:</code><span class="opacity-85">重構</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">test:</code><span class="opacity-85">測試</span>
+    </div>
 </div>
 
   <div class="mt-4 text-sm opacity-70">
@@ -484,7 +482,7 @@ layout: two-cols-header
 3.檢查狀態
 ```bash
 git status
-````
+```
 
 你會看到類似：
 ```powershell
@@ -566,7 +564,7 @@ layout: two-cols-header
 ```md
 - git commit 寫入歷史版本
 - git log 則查看歷史紀錄
-````
+```
 
 2.看看差異（改了哪些內容）
 
@@ -630,7 +628,7 @@ layout: two-cols-header
 列出歷史
 ```bash
 git log --oneline
-````
+```
 
 你應該看到兩筆 commit，像這樣：
 
@@ -716,7 +714,7 @@ layout: section
 
 # GitHub 協作入門
 <div class="opacity-80 text-lg mt-2">
-我們把「本地 Git」接上「遠端 GitHub」：branch / PR / review / merge
+我們把「本地 Git」接上「遠端 GitHub」：branch / PR / review / merge / fork
 </div>
 
 <!--
@@ -1231,6 +1229,203 @@ pre { margin: .35rem 0 !important; }
 -->
 
 ---
+layout: two-cols-header
+---
+
+# Git config：設定你的身份
+<div class="text-sm opacity-75 mt-1">
+提交（commit）需要作者資訊；遠端協作時也常會用到一些基本設定
+</div>
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-2xl font-semibold mb-4">為什麼要設定？</div>
+    <ul class="space-y-3 text-lg">
+      <li><b>每一筆 commit</b> 都會記錄作者（name / email）</li>
+      <li>避免出現 <code>Author identity unknown</code> 之類錯誤</li>
+      <li><b>global</b>：整台電腦通用；<b>local</b>：只套用在某個專案</li>
+    </ul>
+    <div class="mt-6 text-sm opacity-70">先設 global，若同一台電腦有不同身份，再用 local 覆蓋
+    </div>
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-2xl font-semibold mb-4">常用指令</div>
+
+```bash
+# 查看目前設定
+git config --list
+
+# 設定（整台電腦通用）
+git config --global user.name  "你的名字"
+git config --global user.email "你的信箱"
+
+# 只針對目前專案設定（會覆蓋 global）
+git config user.name  "專案用名字"
+git config user.email "專案用信箱"
+
+# 看某一項設定
+git config user.name
+git config --global user.email
+```
+
+<div class="mt-4 text-sm opacity-70">
+  檢查 commit 作者是否正確：<code>git log -1</code>
+</div>
+
+  </div>
+
+</div>
+
+<style>
+pre { margin: .35rem 0 !important; }
+code { padding: .1rem .35rem; border-radius: .45rem; background: rgba(255,255,255,.06); }
+</style>
+
+<!--
+講者稿（逐字稿，簡短版）：
+這一頁我們要把 git config 釐清楚。Git 在你每次 commit 的時候，都會把「作者名稱」和「作者信箱」寫進歷史紀錄，所以如果沒有設定，第一次 commit 常會直接失敗。
+global 的意思是這台電腦所有專案都用同一套設定；local 是只在目前專案生效，用來覆蓋 global。
+我建議大家先把 global 設起來，之後如果你在同一台電腦需要不同身份，例如學校專案與個人專案，再用 local 去覆蓋。
+最後提醒：設定完可以用 git log -1 看最新一筆 commit 的作者資訊是否正確。
+-->
+
+---
+layout: two-cols-header
+---
+
+# Fork 是什麼？什麼時候需要 fork？
+
+<div class="text-sm opacity-75 mt-1">
+Fork 用於「沒有原專案寫入權限」或「想保留一份自己的副本」時的協作情境
+</div>
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-2xl font-semibold mb-4">Fork 的概念</div>
+    <ul class="space-y-3 text-lg">
+      <li>在 GitHub 上，把別人的 repo <b>複製一份</b>到你帳號底下</li>
+      <li>你對自己的 fork 有完整權限（可 push、開分支）</li>
+      <li>之後透過 <b>Pull Request</b> 把改動提交回原 repo</li>
+    </ul>
+    <div class="mt-6 text-sm opacity-70">
+      常見用途：開源貢獻、課程作業模板、沒有權限但想修 bug / 加功能
+    </div>
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-2xl font-semibold mb-4">Fork vs Branch vs Clone</div>
+    <ul class="space-y-3 text-lg leading-relaxed">
+      <li><b>Clone</b>：把某個 repo 下載到你的電腦（本機端）</li>
+      <li><b>Branch</b>：在同一個 repo 裡開分支做功能（你通常要有寫入權限）</li>
+      <li><b>Fork</b>：在 GitHub 上先做「一份你自己的遠端副本」再協作</li>
+    </ul>
+    <div class="mt-6 text-sm opacity-70">
+      判斷方式：<br/>
+      有寫入權限 → 用 branch + PR<br/>
+      沒寫入權限 → fork → 再 PR 回去
+    </div>
+  </div>
+
+</div>
+
+<style>
+code { padding: .1rem .35rem; border-radius: .45rem; background: rgba(255,255,255,.06); }
+</style>
+
+<!--
+講者稿：
+這一頁要讓大家清楚 fork 的用途。fork 是在 GitHub 上先把原專案複製到你的帳號底下，讓你擁有寫入權限，之後你可以在你的 fork 開分支、push，最後再用 PR 把變更提交回原專案。
+fork 常見在兩種情境：你沒有原 repo 的寫入權限，或你想保留一份自己的副本。
+如果你有權限，通常不需要 fork，直接在同一個 repo 開分支、開 PR 就可以。
+-->
+
+---
+layout: two-cols-header
+---
+
+# Fork 工作流程（標準做法）
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">在 GitHub 上做</div>
+    <ol class="space-y-3 text-lg list-decimal pl-6">
+      <li>到原 repo，按 <b>Fork</b></li>
+      <li>到你自己的 fork repo，複製 URL</li>
+      <li>之後改完，用 <b>Pull Request</b> 送回原 repo</li>
+    </ol>
+    <div class="mt-6 text-sm opacity-70">
+      PR 的目標（base）是原 repo 的 main，而不是你自己的 fork
+    </div>
+<br>
+<div class="text-sm opacity-75 mt-1">
+fork → clone → 加 upstream → 開分支改 → push → 開 PR → 同步 upstream
+</div>
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold">在本機端做</div>
+
+```bash
+# 1) clone 你自己的 fork（origin 會指向你的 fork）
+git clone <your_fork_url>
+
+# 2) 加 upstream（指向原 repo）
+git remote add upstream <original_repo_url>
+git remote -v
+
+# 3) 從 main 開一個功能分支
+git switch -c feature/my-change
+
+# 4) 改檔 → add → commit
+git add .
+git commit -m "feat: ..."
+
+# 5) push 到你的 fork（origin）
+git push -u origin feature/my-change
+```
+
+<div class="mt-4 text-sm opacity-70">
+  同步原 repo 更新（常用）：<code>git fetch upstream</code> 後再合併/重置
+</div>
+
+  </div>
+
+</div>
+
+<div class="mt-6 p-5 rounded-2xl bg-white/5 border border-white/10">
+  <div class="text-lg font-semibold mb-2">同步 upstream（兩種常見方式）</div>
+
+```bash
+# 方法 A：merge（保留合併紀錄）
+git switch main
+git fetch upstream
+git merge upstream/main
+
+# 方法 B：rebase（線性歷史，進階用）
+git switch feature/my-change
+git fetch upstream
+git rebase upstream/main
+```
+
+</div>
+
+<style>
+pre { margin: .35rem 0 !important; }
+</style>
+
+<!--
+講者稿：
+這頁是 fork 的標準流程。我會強調兩個 remote 名稱：origin 和 upstream。
+origin 是你自己的 fork（你有權限，可以 push）；upstream 是原 repo（通常你沒權限，不能 push，只能用來同步更新）。
+流程是：先 clone 自己的 fork，然後手動加 upstream 指向原 repo。接著從 main 開功能分支，在分支上改檔、commit，最後 push 到 origin，再到 GitHub 開 PR 回 upstream。
+同步更新時常用 fetch upstream，再把 upstream/main 合進你的 main，或把你的分支 rebase 到 upstream/main。新手先用 merge 就好，rebase 之後再講。
+-->
+
+---
 layout: center
 class: text-center
 ---
@@ -1250,3 +1445,253 @@ class: text-center
 <!--
 今天你已經把 Git 的核心技能拿到了： 本機：你會 status / diff / add / commit / log 協作：你會 branch / merge GitHub：你知道 push / pull，知道 PR 的意義與寫法 進階：你知道衝突是什麼、怎麼解 你下一步要做的是： 把這套流程用在你自己的專案上。 例如：你把 Slidev 加進你的 Git 專案，做一筆 docs commit， 然後 push 上 GitHub，練一次開 PR。我們會在明天做「真實協作演練」：
 -->
+
+
+
+---
+layout: two-cols-header
+---
+
+# 實作任務：Fork → 改 README → 開 PR
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">任務流程</div>
+    <ol class="space-y-3 text-lg list-decimal pl-6">
+      <li>Fork 本專案到你的 GitHub</li>
+      <li>Clone 你的 fork 到本機</li>
+      <li>開分支修改 <code>README.md</code></li>
+      <li>Commit + Push</li>
+      <li>開 Pull Request 回到原專案</li>
+    </ol>
+    <div class="mt-6 text-sm opacity-70">
+      只改 README，練協作流程
+    </div>
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">注意事項</div>
+    <ul class="space-y-3 text-lg">
+      <li><b>不要提交</b> <code>.env</code>、API key、token</li>
+      <li>不要動 <code>node_modules</code>、不要貼大段 log</li>
+      <li>Commit 訊息用 <code>docs:</code> 開頭</li>
+      <li>PR 說明要寫清楚：What / Why / How tested</li>
+    </ul>
+  </div>
+
+</div>
+
+<style>
+pre { margin: .35rem 0 !important; }
+</style>
+
+---
+layout: two-cols-header
+---
+
+# Step 1：Fork 專案到你的帳號
+
+<div class="text-sm opacity-75 mt-1">
+Fork = 在 GitHub 上建立你自己的遠端副本
+</div>
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">在 GitHub 上操作</div>
+    <ol class="space-y-3 text-lg list-decimal pl-6">
+      <li>打開提供的原 repo 頁面</li>
+      <li>右上角按 <b>Fork</b></li>
+      <li>Owner 選你的帳號，repo 名稱保留預設</li>
+      <li>按 <b>Create fork</b></li>
+    </ol>
+    <div class="mt-6 text-sm opacity-70">網址應該變成 <code>github.com/你的帳號/TDX_BUS_DEMO</code>
+    </div>
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">常見錯誤</div>
+    <ul class="space-y-3 text-lg">
+      <li>把 Fork 當成 Clone（Fork 在 GitHub 上做，Clone 在本機做）</li>
+      <li>仍然停留在原 repo 頁面，結果改不到自己的 fork</li>
+    </ul>
+  </div>
+
+</div>
+
+---
+layout: two-cols-header
+---
+
+# Step 2：Clone 你的 fork + 設定 upstream
+
+<div class="text-sm opacity-75 mt-1">
+origin = 你的 fork（用於自己 push），upstream = 作者原 repo（用來同步更新）
+</div>
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">Clone（下載你的 fork）</div>
+
+```bash
+git clone <你的_fork_URL>
+cd tdx-bus-demo
+git remote -v
+````
+
+<div class="mt-4 text-sm opacity-70">
+  你會看到 <code>origin</code> 指向你的 GitHub repo
+</div>
+
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">加 upstream（連回原 repo）</div>
+
+```bash
+git remote add upstream <作者_原repo_URL>
+git remote -v
+```
+
+<div class="mt-4 text-sm opacity-70">
+  目的：作者更新原 repo 時，你可以同步最新版本
+</div>
+
+  </div>
+
+</div>
+
+<style>
+pre { margin: .35rem 0 !important; }
+</style>
+
+---
+layout: two-cols-header
+---
+
+# Step 3：開分支，修改 README.md
+
+<div class="text-sm opacity-75 mt-1">
+一個任務一個分支，這次任務就是文件更新
+</div>
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">開分支</div>
+
+```bash
+git switch -c docs/readme-update
+git status
+```
+
+<div class="mt-4 text-sm opacity-70">
+  確認你現在在 <code>docs/readme-update</code> 分支
+</div>
+
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">README 要改什麼？（擇一）</div>
+
+<ul class="space-y-3 text-lg">
+  <li><b>新增 Troubleshooting</b>：例如 <code>npm install</code> 版本衝突、啟動常見錯誤</li>
+  <li><b>補充啟動步驟</b>：把某一步寫更清楚（Windows 指令、路徑、常見漏做）</li>
+  <li><b>改善可讀性</b>：加小標題、加 checklist、修錯字、排版 Markdown</li>
+</ul>
+
+<div class="mt-6 text-sm opacity-70">
+  建議：只改 README 內容，不改程式碼
+</div>
+
+  </div>
+
+</div>
+
+---
+layout: two-cols-header
+---
+
+# Step 4：Commit + Push（只提交 README）
+
+<div class="text-sm opacity-75 mt-1">
+提交前先檢查差異與狀態，避免把不該提交的檔案送上去
+</div>
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">檢查差異</div>
+
+```bash
+git diff
+git status
+```
+
+<div class="mt-4 text-sm opacity-70">
+  確認只有 README.md 被修改
+</div>
+
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">提交並推上去</div>
+
+```bash
+git add README.md
+git commit -m "docs: improve README"
+git push -u origin docs/readme-update
+```
+
+<div class="mt-4 text-sm opacity-70">
+  <code>-u</code>：把本地分支和遠端分支綁定，之後直接 <code>git push</code> 即可
+</div>
+
+  </div>
+
+</div>
+
+<style>
+pre { margin: .35rem 0 !important; }
+</style>
+
+---
+layout: two-cols-header
+---
+
+# Step 5：開 Pull Request 回到原專案
+
+<div class="text-sm opacity-75 mt-1">
+PR = 請求把你分支上的變更合併進原 repo 的 main
+</div>
+
+<div class="grid grid-cols-2 gap-10 mt-4">
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">在 GitHub 上開 PR</div>
+    <ol class="space-y-3 text-lg list-decimal pl-6">
+      <li>到你的 fork repo 頁面</li>
+      <li>點選提示 <b>Compare & pull request</b></li>
+      <li>確認 <b>base repo</b> 是老師原 repo</li>
+      <li>確認 <b>base branch</b> 是 <code>main</code></li>
+      <li>compare 是你的 <code>docs/readme-update</code></li>
+      <li>按 <b>Create pull request</b></li>
+    </ol>
+  </div>
+
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">PR 內容</div>
+    <ul class="space-y-3 text-lg">
+      <li><b>What</b>：我改了什麼（例如新增 Troubleshooting）</li>
+      <li><b>Why</b>：為什麼要改（例如同學常卡 npm/vite）</li>
+      <li><b>How tested</b>：我怎麼確認格式正確（預覽 README、照著步驟跑一次）</li>
+    </ul>
+
+<div class="mt-6 text-sm opacity-70">標題可以用 <code>docs:</code> 開頭，例如 <code>docs: add troubleshooting section</code>
+</div>
+
+  </div>
+
+</div>
