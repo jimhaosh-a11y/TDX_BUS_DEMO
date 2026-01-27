@@ -4,6 +4,7 @@ title: Git 教學
 info: |
   本課程：Git 基礎概念與核心指令（本地工作流）
 author: yuyuedeluo
+version: 1.6
 layout: cover
 class: text-left
 ---
@@ -37,7 +38,7 @@ class: text-left
   </div>
 
   <div class="mt-8 text-base opacity-70">
-    講師：yuyuedeluo　|　版本：v1.5
+    講師：洛魚　|　版本：v1.6
   </div>
 </div>
 
@@ -50,7 +51,11 @@ layout: default
 ---
 
 # Git 是什麼？
-
+<img
+  src="/images/comandos-git.jpg"
+  class="w-40 max-w-xl ml-0 rounded-lg"
+  style="object-fit: contain; filter: brightness(1.) invert(0.1);"
+/>
 <div class="grid grid-cols-2 gap-4 mt-4">
 
   <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
@@ -75,7 +80,7 @@ layout: default
 
 <div class="mt-8 text-sm opacity-70">Git 是版本控制工具
   <span class="mx-2">|</span>
-  詳細說明：<a class="underline" href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F" target="_blank">What is Git?</a>
+ 官方說明：<a class="underline" href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F" target="_blank">What is Git?</a>
 </div>
 
 <!--
@@ -155,11 +160,6 @@ layout: default
     <div class="mt-4 text-sm opacity-70 mb-2">macOS</div>
     <div class="text-base">
       <code>git --version</code><br />
-      <span class="text-sm opacity-70">沒有就安裝 Command Line Tools</span>
-    </div>
-    <div class="mt-4 text-sm opacity-70 mb-2">Linux</div>
-    <div class="text-base">
-      <code>sudo apt install git</code>
     </div>
   </div>
 
@@ -244,6 +244,74 @@ layout: default
 Git 指令很多，但初學者先掌握最核心四個就能開始管理版本。
 今天只要基礎的 4 個指令就能開始： git status：看現在發生什麼事 git add：選好要提交的檔案 git commit：做一個存檔點 git log：看歷史 你等一下會一直看到我在打 status。 新手最需要的能力不是背指令，是「先看狀態再動手」。
 -->
+
+
+---
+layout: default
+---
+
+# Commit 訊息怎麼寫？
+
+<div class="grid grid-cols-2 gap-4 mt-4">
+
+  <!-- Left: rules -->
+  <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold mb-4">三個原則</div>
+    <ul class="space-y-3 text-lg leading-relaxed">
+      <li>小步提交：一次 commit 只做一件事</li>
+      <li>動詞開頭、簡潔明瞭</li>
+      <li>讓人清楚看懂改動</li>
+    </ul>
+    <div class="mt-6 text-sm opacity-70">
+      推薦格式：<code>&lt;type&gt;: &lt;what&gt;</code>
+    </div>
+  </div>
+
+<!-- Right: prefixes -->
+<div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+  <div class="text-xl font-semibold mb-4">常見前綴（推薦）</div>
+  
+  <div class="grid grid-cols-2 gap-3 text-lg">
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">feat:</code><span class="opacity-85">新功能</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">fix:</code><span class="opacity-85">修 bug</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">docs:</code><span class="opacity-85">文件</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">chore:</code><span class="opacity-85">雜項/工具</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">refactor:</code><span class="opacity-85">重構</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <code class="px-2 py-1 rounded bg-white/5">test:</code><span class="opacity-85">測試</span>
+    </div>
+</div>
+
+  <div class="mt-4 text-sm opacity-70">
+    commit沒有強制的規定，重點是要清楚描述改動內容
+  </div>
+</div>
+
+</div>
+
+<div class="mt-4 p-5 rounded-2xl bg-white/5 border border-white/10">
+  <div class="text-lg font-semibold mb-3">範例</div>
+
+```bash
+git commit -m "docs: update README.md"
+```
+
+</div>
+
+<style>
+pre { margin-top: 0.4rem !important; margin-bottom: 0.4rem !important; }
+</style>
+
 
 ---
 layout: two-cols-header
@@ -353,72 +421,6 @@ git revert <commit>
 情境二：已 add 但還沒 commit，用 git restore --staged <file> 把檔案從暫存區移除，但保留工作區修改。
 commit 後才發現錯會更複雜，之後講分支與協作流程再深入。
 -->
-
----
-layout: default
----
-
-# Commit 訊息怎麼寫？
-
-<div class="grid grid-cols-2 gap-4 mt-4">
-
-  <!-- Left: rules -->
-  <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-    <div class="text-xl font-semibold mb-4">三個原則</div>
-    <ul class="space-y-3 text-lg leading-relaxed">
-      <li>小步提交：一次 commit 只做一件事</li>
-      <li>動詞開頭、簡潔明瞭</li>
-      <li>讓人清楚看懂改動</li>
-    </ul>
-    <div class="mt-6 text-sm opacity-70">
-      推薦格式：<code>&lt;type&gt;: &lt;what&gt;</code>
-    </div>
-  </div>
-
-<!-- Right: prefixes -->
-<div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-  <div class="text-xl font-semibold mb-4">常見前綴（推薦）</div>
-  
-  <div class="grid grid-cols-2 gap-3 text-lg">
-    <div class="flex items-center gap-2">
-      <code class="px-2 py-1 rounded bg-white/5">feat:</code><span class="opacity-85">新功能</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <code class="px-2 py-1 rounded bg-white/5">fix:</code><span class="opacity-85">修 bug</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <code class="px-2 py-1 rounded bg-white/5">docs:</code><span class="opacity-85">文件</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <code class="px-2 py-1 rounded bg-white/5">chore:</code><span class="opacity-85">雜項/工具</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <code class="px-2 py-1 rounded bg-white/5">refactor:</code><span class="opacity-85">重構</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <code class="px-2 py-1 rounded bg-white/5">test:</code><span class="opacity-85">測試</span>
-    </div>
-</div>
-
-  <div class="mt-4 text-sm opacity-70">
-    commit沒有強制的規定，重點是要清楚描述改動內容
-  </div>
-</div>
-
-</div>
-
-<div class="mt-4 p-5 rounded-2xl bg-white/5 border border-white/10">
-  <div class="text-lg font-semibold mb-3">範例</div>
-
-```bash
-git commit -m "docs: update README.md"
-```
-
-</div>
-
-<style>
-pre { margin-top: 0.4rem !important; margin-bottom: 0.4rem !important; }
-</style>
 
 ---
 layout: two-cols-header
@@ -555,7 +557,7 @@ pre { margin: .35rem 0 !important; }
 layout: two-cols-header
 ---
 
-### 任務 B：修改檔案並提交
+### 任務 B：修改檔案並再次提交
 
 <div class="text-sm opacity-80">
 目標：在 <code>README.md</code> 再加 2 行 → 用 <code>git diff</code> 看差異 → add → commit
