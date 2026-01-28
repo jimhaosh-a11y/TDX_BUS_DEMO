@@ -21,7 +21,7 @@ class: text-left
   <div class="mt-8 grid grid-cols-2 gap-4">
     <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
       <div class="text-base opacity-70">Day 1</div>
-      <div class="text-xl font-semibold mt-1">Git + GitHub（80分鐘）</div>
+      <div class="text-xl font-semibold mt-1">Git + GitHub（2 小時）</div>
       <div class="text-sm opacity-70 mt-2">
         clone / commit / push<br>
         branch / PR / review
@@ -1886,13 +1886,13 @@ layout: default
     <div class="text-sm opacity-75 mt-1">
       把圖片轉成 Unicode 盲文點陣（Braille art）
     </div>
-    <div class="mt-5 text-sm font-semibold opacity-90">功能</div>
-    <ul class="mt-2 space-y-2 text-base opacity-90">
+    <div class="mt-2 text-sm font-semibold opacity-90">功能</div>
+    <ul class="mt-2 text-base opacity-90">
       <li>影像 → 灰階 → 點陣映射</li>
       <li>輸入圖就能顯示文字</li>
       <li>適合做小功能擴充：尺寸、對比、字元密度</li>
     </ul>
-    <div class="mt-5 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
     <div class="mt-2 text-sm">
       <a class="underline underline-offset-4" href="https://github.com/505e06b2/Image-to-Braille" target="_blank" rel="noopener">
         505e06b2/Image-to-Braille
@@ -1906,13 +1906,13 @@ layout: default
     <div class="text-sm opacity-75 mt-1">
       高度可自訂的歌詞視覺化 + 音樂播放器（WinUI3 / Win2D）
     </div>
-    <div class="mt-5 text-sm font-semibold opacity-90">功能</div>
-    <ul class="mt-2 space-y-2 text-base opacity-90">
+    <div class="mt-2 text-sm font-semibold opacity-90">功能</div>
+    <ul class="mt-2 text-base opacity-90">
       <li>桌面 App 的 UI/動畫與渲染</li>
       <li>偏完整產品：設定、體驗、工程結構</li>
       <li>適合觀察如何拆模組、如何做可擴充功能</li>
     </ul>
-    <div class="mt-5 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
     <div class="mt-2 text-sm">
       <a class="underline underline-offset-4" href="https://github.com/jayfunc/BetterLyrics" target="_blank" rel="noopener">
         jayfunc/BetterLyrics
@@ -1926,16 +1926,165 @@ layout: default
     <div class="text-sm opacity-75 mt-1">
       手繪風白板工具（支援協作/分享）
     </div>
-    <div class="mt-5 text-sm font-semibold opacity-90">功能</div>
-    <ul class="mt-2 space-y-2 text-base opacity-90">
+    <div class="mt-2 text-sm font-semibold opacity-90">功能</div>
+    <ul class="mt-2 text-base opacity-90">
       <li>前端大型專案結構（UI/狀態/資料）</li>
       <li>協作功能：即時同步、分享流程</li>
       <li>適合理解如何把產品做成可維護的工程</li>
     </ul>
-    <div class="mt-5 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
     <div class="mt-2 text-sm">
       <a class="underline underline-offset-4" href="https://github.com/excalidraw/excalidraw" target="_blank" rel="noopener">
         excalidraw/excalidraw
+      </a>
+    </div>
+  </div>
+
+</div>
+
+---
+layout: default
+---
+
+# 有趣的 GitHub 專案（靈感牆）
+
+<div class="text-sm opacity-75 mt-1">
+GitHub上有許多開源的專案，社群中創作者已經發表了許多好用的工具，可以多多探索！
+</div>
+
+<div class="grid grid-cols-3 gap-3 mt-4">
+
+  <!-- 1) invofe -->
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold">invofe</div>
+    <div class="text-sm opacity-75 mt-1">
+      Windows 終端機檔案總管（Terminal-based File Explorer）
+    </div>
+    <div class="mt-2 text-sm font-semibold opacity-90">專案亮點</div>
+    <ul class="mt-2 text-base opacity-90">
+      <li>從零打造工具型專案</li>
+      <li>具完整 build / run 流程，接近真實工程專案</li>
+      <li>仍在開發中，可持續擴充新功能</li>
+    </ul>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm">
+      <a class="underline underline-offset-4"
+        href="https://github.com/casperchen1/invofe"
+        target="_blank" rel="noopener">
+        casperchen1/invofe
+      </a>
+    </div>
+  </div>
+
+
+  <!-- 2) you-get -->
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold">you-get</div>
+    <div class="text-sm opacity-75 mt-1">命令列下載器：</div>
+<div class="text-sm opacity-75 mt-1">抓影音/音訊/圖片等媒體
+    </div>
+    <div class="mt-2 text-sm font-semibold opacity-90">功能</div>
+    <ul class="mt-2 text-base opacity-90">
+      <li>CLI 工具：參數設計、使用說明、錯誤處理</li>
+      <li>解析網站內容：把網頁「抽」出可下載的資源</li>
+      <li>適合看：如何把工具做成可發佈套件</li>
+    </ul>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm">
+      <a class="underline underline-offset-4" href="https://github.com/soimort/you-get" target="_blank" rel="noopener">
+        soimort/you-get
+      </a>
+    </div>
+  </div>
+
+  <!-- 3) Kazumi -->
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold">Kazumi</div>
+    <div class="text-sm opacity-75 mt-1">Flutter：</div><div class="text-sm opacity-75 mt-1">自訂規則採集番劇 + 線上觀看</div>
+    <div class="mt-2 text-sm font-semibold opacity-90">功能</div>
+    <ul class="mt-2 text-base opacity-90">
+      <li>規則系統：用 Xpath 選擇器快速做資料來源</li>
+      <li>跨平台：Android/Windows/ macOS/Linux/iOS</li>
+      <li>影像處理：支援 Anime4K 即時超解析</li>
+    </ul>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm">
+      <a class="underline underline-offset-4" href="https://github.com/Predidit/Kazumi" target="_blank" rel="noopener">
+        Predidit/Kazumi
+      </a>
+    </div>
+  </div>
+
+</div>
+
+---
+layout: default
+---
+
+# 有趣的 GitHub 專案（靈感牆）
+
+<div class="text-sm opacity-75 mt-1">
+建議看點：README 的「如何安裝 / 如何用」寫得好不好？貢獻者怎麼協作？版本怎麼控？
+</div>
+
+<div class="grid grid-cols-3 gap-3 mt-4">
+
+  <!-- 1) stable-diffusion-webui -->
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold">stable-diffusion-webui</div>
+    <div class="text-sm opacity-75 mt-1">用 Gradio 打包的 Stable Diffusion Web 介面</div>
+    <div class="mt-2 text-sm font-semibold opacity-90">功能</div>
+    <ul class="mt-2 text-base opacity-90">
+      <li>模型產品化：把 AI 模型做成一般人可用的工具</li>
+      <li>高度擴充：外掛、腳本、模型管理</li>
+      <li>工程觀察：設定檔、啟動流程、社群維護</li>
+    </ul>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm">
+      <a class="underline underline-offset-4"
+         href="https://github.com/AUTOMATIC1111/stable-diffusion-webui"
+         target="_blank" rel="noopener">
+        AUTOMATIC1111/stable-diffusion-webui
+      </a>
+    </div>
+  </div>
+
+  <!-- 2) gemini-cli -->
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold">gemini-cli</div>
+    <div class="text-sm opacity-75 mt-1">在終端機中使用 Gemini 的開源 AI CLI</div>
+    <div class="mt-2 text-sm font-semibold opacity-90">功能</div>
+    <ul class="mt-2 text-base opacity-90">
+      <li>CLI UX：指令設計、互動流程、錯誤提示</li>
+      <li>Agent 思維：工具串接、工作流程設計</li>
+      <li>專案文件：新手 onboarding 寫法</li>
+    </ul>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm">
+      <a class="underline underline-offset-4"
+         href="https://github.com/google-gemini/gemini-cli"
+         target="_blank" rel="noopener">
+        google-gemini/gemini-cli
+      </a>
+    </div>
+  </div>
+
+  <!-- 3) so-vits-svc -->
+  <div class="p-7 rounded-2xl bg-white/5 border border-white/10">
+    <div class="text-xl font-semibold">so-vits-svc</div>
+    <div class="text-sm opacity-75 mt-1">SVC：歌聲 / 音色轉換系統（非單純 TTS）</div>
+    <div class="mt-2 text-sm font-semibold opacity-90">功能</div>
+    <ul class="mt-2 text-base opacity-90">
+      <li>深度學習應用：聲音模型訓練與推論</li>
+      <li>工程現實面：資料集、效能、品質控管</li>
+      <li>適合觀察：研究到產品的專案結構</li>
+    </ul>
+    <div class="mt-2 text-sm font-semibold opacity-90">Repo</div>
+    <div class="mt-2 text-sm">
+      <a class="underline underline-offset-4"
+         href="https://github.com/svc-develop-team/so-vits-svc"
+         target="_blank" rel="noopener">
+        svc-develop-team/so-vits-svc
       </a>
     </div>
   </div>
